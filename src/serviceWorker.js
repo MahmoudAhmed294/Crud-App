@@ -10,14 +10,17 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
+const HOST = window.location.hostname
+const LOCALHOST = 'localhost'
+const LOCALHOST_IPV6 = '[::1]'
+const REGEX = /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+
 const isLocalhost = Boolean(
-  window.location.hostname === 'localhost' ||
+    HOST === LOCALHOST ||
     // [::1] is the IPv6 localhost address.
-    window.location.hostname === '[::1]' ||
+    HOST === LOCALHOST_IPV6 ||
     // 127.0.0.0/8 are considered localhost for IPv4.
-    window.location.hostname.match(
-      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-    )
+    REGEX.test(HOST)
 );
 
 export function register(config) {
@@ -60,7 +63,7 @@ function registerValidSW(swUrl, config) {
     .then(registration => {
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
-        if (installingWorker == null) {
+        if (installingWorker === null) {
           return;
         }
         installingWorker.onstatechange = () => {
@@ -108,7 +111,7 @@ function checkValidServiceWorker(swUrl, config) {
       const contentType = response.headers.get('content-type');
       if (
         response.status === 404 ||
-        (contentType != null && contentType.indexOf('javascript') === -1)
+        (contentType !== null && contentType.indexOf('javascript') === -1)
       ) {
         // No service worker found. Probably a different app. Reload the page.
         navigator.serviceWorker.ready.then(registration => {

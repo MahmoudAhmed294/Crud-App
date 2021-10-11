@@ -8,7 +8,7 @@ class App extends Component {
     item: [{ name: "Html" }],
     current: "",
   };
-  UpdataCourse = (e) => {
+  updataCourse = (e) => {
     this.setState({
       current: e.target.value,
     });
@@ -55,7 +55,7 @@ class App extends Component {
       <div className="container mt-5 ">
         <h4 className="text-center mt-5 mb-3 p-3 bg-warning">ADD Course</h4>
         <AddItem
-          UpdataCourse={this.UpdataCourse}
+          updataCourse={this.updataCourse}
           handleSubmit={this.handleSubmit}
           current={this.state.current}
         />
