@@ -14,7 +14,7 @@ function AddItem ({ updataCourse, handleSubmit, current }) {
       />
       <div className='input-group-prepend'>
 
-      <button className='btn btn-success'>Add Course</button>
+      <button type='submit' className='btn btn-success'>Add Course</button>
       </div>
     </form>
   )
