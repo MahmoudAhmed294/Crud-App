@@ -1,15 +1,15 @@
 import React from "react";
 
-const AddItem = (props) => {
+const AddItem = ({ updataCourse, handleSubmit, current }) => {
   return (
-    <form onSubmit={props.handleSubmit} className='input-group mb-3'>
+    <form onSubmit={handleSubmit} className='input-group mb-3'>
       <input
         type="text"
         className="form-control"
         aria-describedby="basic-addon1"
         placeholder="Please Enter Courser"
-        value={props.current}
-        onChange={props.UpdataCourse}
+        value={current}
+        onChange={updataCourse}
       />
       <div className='input-group-prepend'>
 
