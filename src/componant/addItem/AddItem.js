@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function AddItem ({ updataCourse, handleSubmit, current }) {
   return (
@@ -20,3 +21,9 @@ function AddItem ({ updataCourse, handleSubmit, current }) {
 }
 
 export default AddItem;
+
+AddItem.propTypes = {
+  updataCourse: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  current: PropTypes.string.isRequired
+}
